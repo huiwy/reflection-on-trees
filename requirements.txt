@@ -1,0 +1,17 @@
+uvicorn
+datasets
+fastapi
+fire
+httpx
+numpy
+scipy
+openai==0.28.0
+requests~=2.31.0
+PyYAML~=6.0
+tarski~=0.8.2
+pddl==0.4.0
+requests_futures
+torch
+tqdm
+transformers==4.38.2
+vllm==0.3.0
