@@ -44,7 +44,6 @@ if __name__ == '__main__':
     parser.add_argument('--path', type=str)
     parser.add_argument('--output_name', type=str, default='bw_summarization.json')
     parser.add_argument('--thres', type=float, default=0.1)
-    parser.add_argument('--old_policy', type=str, default=None)
     parser.add_argument('--steps', type=int)    
     args = parser.parse_args()
     

@@ -8,8 +8,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardi
 import datasets
 import json
 
-from reasoners.visualization import visualize, TreeLog, analyze
-from reasoners.visualization.tree_snapshot import NodeData
+from reasoners.visualization import analyze
 from reasoners.algorithm.mcts import MCTSNode
 from utils import retrieve_answer, retrieve_answer_from_dataset, judge_answer
 
@@ -53,7 +52,6 @@ if __name__ == '__main__':
     parser.add_argument('--split', type=str, default='train')
     parser.add_argument('--thres', type=float, default=0.1)
     parser.add_argument('--method', type=str, default='improving')
-    parser.add_argument('--old_policy', type=str, default=None)
     
     args = parser.parse_args()
 

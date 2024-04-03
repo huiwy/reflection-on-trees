@@ -1,8 +1,9 @@
 # [RoT: Enhancing Large Language Models with Reflection on Search Trees](http://paper.com)
 
-**Reflection on search Trees (RoT)** is an LLM reflection framework designed to improve the performance of tree search based on previous valuable search experiences.
+RoT is a reflection framework designed to improve the performance of tree-search-based prompting methods and non-tree-search-based prompting methods such as [RAP](https://arxiv.org/abs/2305.14992), [ToT](https://arxiv.org/abs/2305.10601), and CoT based on previous valuable search experiences.
 
-This repo contains the implementation and experiment code of Blocksworld and GSM8K, for the implementation of CraigslistBargain, see [proactive dialogue](https://to-proactivedial), as its MCTS  much different from the above two tasks.
+---
+This repo contains the implementation and experiment code of Blocksworld and GSM8K. For the implementation of CraigslistBargain, see [RoT dialogue](https://to-proactivedial), as its tree search process is much different from the above two tasks.
 
 ## Quick Start
 Install the required libraries.
@@ -21,13 +22,40 @@ cd vllm-server
 sh phi-2.sh
 ```
 
-Then you can run RoT based on the served model.
+Then you can run RoT to generate the new prompts with guidelines based on the served model.
 ```bash
 export OPENAI_API_BASE=xxx
 export OPENAI_API_KEY=xxx
 
-sh blocksworld_control.py
+sh blocksworld_rot.sh prompts/bw/pool_prompt_rot.json # the prompt with RoT are generated at prompts/bw/pool_prompt_rot.json
+sh gsm8k_rot.sh prompts/gsm8k/prompt_pool_rot.json # the prompt with RoT are generated at prompts/gsm8k/prompt_pool_rot.json
+```
+
+Finally add the genereted prompt to prompt dict in `blocksword_control.py` or `gsm8k_control.py`:
+```python
+prompt_path = {
+    'default': 'prompts/bw/pool_prompt_v2_step_{step}.json',
+    'rot': 'prompts/bw/pool_prompt_v2_step_{step}_rot.json',
+    ...
++   'rot-new': 'prompts/gsm8k/prompt_pool_rot.json'
+}
+```
+
+and run with the new prompt with guidelines:
+
+```bash
+python gsm8k_control.py --mode mcts --n_iter 10 --split train --prompt rot-new
 ```
 
 ## Acknowledgement 
-This repo are built based on [llm-reasoner](https://llm-reasoners) 
+This repo are built on [llm-reasoner](https://llm-reasoners) 
+
+## Citation
+```
+@article{hao2023reasoning,
+  title={Reasoning with language model is planning with world model},
+  author={Hao, Shibo and Gu, Yi and Ma, Haodi and Hong, Joshua Jiahua and Wang, Zhen and Wang, Daisy Zhe and Hu, Zhiting},
+  journal={arXiv preprint arXiv:2305.14992},
+  year={2023}
+}
+```

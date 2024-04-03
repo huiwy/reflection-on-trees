@@ -42,7 +42,6 @@ if __name__ == '__main__':
         if args.n_iters != -1:
             command += f' --n_iters {args.n_iters}'
 
-
     command += f' --prompt_path {prompt_path[args.prompt].format(step=args.step)}'
     
     log_path = f'logs/bw/step_{args.step}/{args.model}_{args.prompt}_{args.mode}_{args.n_iters}_{datetime.now().strftime("%Y%m%d-%H%M")}'
