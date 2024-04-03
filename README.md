@@ -48,7 +48,7 @@ python gsm8k_control.py --mode mcts --n_iter 10 --split train --prompt rot-new
 ```
 
 ## Acknowledgement 
-This repo are built on [llm-reasoner](https://llm-reasoners) 
+This repo is built on [llm-reasoner](https://llm-reasoners).
 
 ## Citation
 ```
