@@ -1,9 +1,9 @@
-# [RoT: Enhancing Large Language Models with Reflection on Search Trees](http://paper.com)
+# RoT: Enhancing Large Language Models with Reflection on Search Trees
 
 RoT is a reflection framework designed to improve the performance of tree-search-based prompting methods and non-tree-search-based prompting methods such as [RAP](https://arxiv.org/abs/2305.14992), [ToT](https://arxiv.org/abs/2305.10601), and CoT based on previous valuable search experiences.
 
 ---
-This repo contains the implementation and experiment code of Blocksworld and GSM8K. For the implementation of CraigslistBargain, see [RoT dialogue](https://to-proactivedial), as its tree search process is much different from the above two tasks.
+This repo contains the implementation and experiment code of Blocksworld and GSM8K. For the implementation of CraigslistBargain, see [RoT dialogue](rot-bargain), as the tree search process with a stochastic environment is much different from the deterministic ones.
 
 ## Quick Start
 Install the required libraries.
@@ -48,14 +48,4 @@ python gsm8k_control.py --mode mcts --n_iter 10 --split train --prompt rot-new
 ```
 
 ## Acknowledgement 
-This repo is built on [llm-reasoner](https://llm-reasoners).
-
-## Citation
-```
-@article{hao2023reasoning,
-  title={Reasoning with language model is planning with world model},
-  author={Hao, Shibo and Gu, Yi and Ma, Haodi and Hong, Joshua Jiahua and Wang, Zhen and Wang, Daisy Zhe and Hu, Zhiting},
-  journal={arXiv preprint arXiv:2305.14992},
-  year={2023}
-}
-```
+This repo is built on [llm-reasoner](https://github.com/Ber666/llm-reasoners).
