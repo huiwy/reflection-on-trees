@@ -11,4 +11,4 @@ apis
 *.html
 *.pkl
 
-!rot.json
+!prompts/*.json

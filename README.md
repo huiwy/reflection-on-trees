@@ -34,8 +34,8 @@ sh gsm8k_rot.sh prompts/gsm8k/prompt_pool_rot.json # the prompt with RoT are gen
 Finally add the genereted prompt to prompt dict in `blocksword_control.py` or `gsm8k_control.py`:
 ```python
 prompt_path = {
-    'default': 'prompts/bw/pool_prompt_v2_step_{step}.json',
-    'rot': 'prompts/bw/pool_prompt_v2_step_{step}_rot.json',
+    'default': 'prompts/gsm8k/prompt_pool.json',
+    'rot': 'prompts/gsm8k/prompt_pool_rot.json',
     ...
 +   'rot-new': 'prompts/gsm8k/prompt_pool_rot.json'
 }
