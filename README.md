@@ -31,7 +31,7 @@ sh blocksworld_rot.sh prompts/bw/pool_prompt_rot.json # the prompt with RoT are 
 sh gsm8k_rot.sh prompts/gsm8k/prompt_pool_rot.json # the prompt with RoT are generated at prompts/gsm8k/prompt_pool_rot.json
 ```
 
-Finally add the genereted prompt to prompt dict in `blocksword_control.py` or `gsm8k_control.py`:
+Finally add the generated prompt to prompt dict in `blocksword_control.py` or `gsm8k_control.py`:
 ```python
 prompt_path = {
     'default': 'prompts/gsm8k/prompt_pool.json',
