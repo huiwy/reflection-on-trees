@@ -129,7 +129,6 @@ class Analysis:
                     nn.data['reward'] = self.evaluator.get_score(nn)
                     nn.data['Q'] = nn.data['reward']
                     nn.data['N'] = 1
-                    print(nn.data)
 
         if from_leaves:
             for n in self.tree_snapshot.nodes:
@@ -142,10 +141,6 @@ class Analysis:
             nn = self.tree_snapshot.nodes[n]
             if self.evaluator.is_terminal(nn):
                 continue
-            print(nn.data)
-            print(self.tree_snapshot.children(nn.id))
-            if nn.data['blocks_state'] == 'the blue block is clear, the orange block is in the hand, the yellow block is clear, the hand is holding the orange block, the yellow block is on top of the red block, the blue block is on the table, and the red block is on the table.':
-                breakpoint()
             nn.data['Q'] /= nn.data['N']
             
     def backprop_rewards_from_node(self, node: TreeSnapshot.Node):

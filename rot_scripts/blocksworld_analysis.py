@@ -25,7 +25,6 @@ class Evaluator:
     def is_terminal(self, node):
         if 'step_idx' not in node.data:
             return False
-        print(node.data['step_idx'], self.depth)
         return node.data['step_idx'] == self.depth
     
     def get_score(self, node):

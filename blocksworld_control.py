@@ -38,7 +38,7 @@ if __name__ == '__main__':
         if args.width != -1:
             command += f' --width {args.width}'
     else:
-        command = f'python examples/blocksworld/rap.py --hf_path {args.model}  --depth_limit {args.step} --output_trace_in_each_iter --n_actions 4'
+        command = f'python examples/blocksworld/rap.py --hf_path {args.model}  --depth_limit {args.step} --output_trace_in_each_iter'
         if args.n_iters != -1:
             command += f' --n_iters {args.n_iters}'
 
